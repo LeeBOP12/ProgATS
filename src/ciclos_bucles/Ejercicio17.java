@@ -18,35 +18,35 @@ public class Ejercicio17 {
     -Precio por litro
     Se pide 5 facturas introducidas: facturación total, cantidad en litros vendidos del articulo 1 y cuantas facturas se emitieron 
     de mas de 600 USD
-    */
-    public static void main (String[] args){
+     */
+    public static void main(String[] args) {
         Scanner leer = new Scanner(System.in);
         String codigo;
-        int litros, litrosAr1=0, conte600=0;
-        float precioLitros, sumaFacturae=0, importeFactura=0;
-        
+        int cantiadL, facturasM600=0;
+        float precioL, facturaT=0, importeF, litrosAr1=0;
+
         System.out.println("==== FACTURA DESINFECTANTES ====");
-        for (int i = 1; i < 6; i++) {
-            System.out.print("FACTURA "+i+"\nCodigo Articulo: ");
+        for (int i = 0; i < 5; i++) {
+            System.out.print("FACTURA "+(i+1)+"\nCodigo: ");
             codigo = leer.nextLine();
             System.out.print("Cantidad de litros: ");
-            litros = Integer.parseInt(leer.nextLine());
+            cantiadL = Integer.parseInt(leer.nextLine());
             System.out.print("Precio por litro: ");
-            precioLitros = Float.parseFloat(leer.nextLine());
+            precioL = Float.parseFloat(leer.nextLine());
             
-            importeFactura = (float) precioLitros*litros;
-            sumaFacturae+= importeFactura;
+            importeF = (float) cantiadL*precioL;
+            facturaT+= importeF;
             
             if (codigo.equals("1")) {
-               litrosAr1+=litros;
+                litrosAr1+= cantiadL;
             }
-            if (importeFactura>600) {
-                conte600++;
+            if (importeF>600) {
+                facturasM600++;
             }
         }
         System.out.println("\n==== RESUMEN DE FACTURAS ====");
-        System.out.println("Facturacion total: "+sumaFacturae);
-        System.out.println("Cantidad de litros del Art. 1: "+litrosAr1);
-        System.out.println("Facturas mayores a 600 USD: "+conte600);
+        System.out.println("Facturacion total: "+facturaT);
+        System.out.println("Litros vendidos en articulo 1: "+litrosAr1);
+        System.out.println("Facturas mayores a 600: "+facturasM600);
     }
 }
